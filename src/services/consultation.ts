@@ -1,12 +1,9 @@
 "use server";
 
-import { httpClient } from "@/lib/axios/httpClient";
-import {
-  IConsultation,
-  IBookConsultationPayload,
-  IUpdateConsultationStatusPayload,
-  IPaymentInitiatePayload,
-} from "@/types/consultation.types";
+import { httpClient } from "@/lib/axious/httpClient";
+import { IBookConsultationPayload, IConsultation, IPaymentInitiatePayload, IUpdateConsultationStatusPayload } from "../types/consultation.types";
+
+
 
 // -------------------------------
 // 📌 Book a consultation (CLIENT)

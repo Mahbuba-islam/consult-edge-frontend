@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useUpdateTestimonial } from "@/hooks/testimonial.hooks";
 
 export function EditTestimonialModal({
   testimonial,

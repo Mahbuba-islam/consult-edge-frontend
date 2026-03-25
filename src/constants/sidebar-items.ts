@@ -1,91 +1,44 @@
-import {  LayoutDashboard, BookOpen, FolderPlus, Users, UserCog, Clock, Star, UserPlus, CalendarCheck } from "lucide-react"
-import { Roles } from "@/src/constants/roles"
+import {
+  LayoutDashboard,
+  Users,
+  Star,
+  Calendar,
+  BarChart,
+  UserCog,
+} from "lucide-react";
 
-import type { FeatureKey } from "@/src/constants/features";
+export enum Roles {
+  ADMIN = "ADMIN",
+  EXPERT = "EXPERT",
+  CLIENT = "CLIENT",
+}
 
 export interface SidebarItem {
   label: string;
   href: string;
   icon: React.ComponentType<{ className?: string }>;
-  feature?: FeatureKey; // ⭐ critical
+  feature?: string;
 }
-
 
 export const sidebarItems: Record<Roles, SidebarItem[]> = {
-  
   [Roles.ADMIN]: [
-    { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-  { label: "Bookings", href: "/dashboard/bookings", icon: BookOpen },
-  { label: "Create category", href: "/dashboard/categories/createCategories", icon: FolderPlus },
-  { label: "Manage category", href: "/dashboard/categories", icon: FolderPlus },
-  { label: "All Users", href: "/dashboard/users", icon: Users },
-  { label: "Manage Users", href: "/dashboard/manageUsers", icon: UserCog },
-
+    { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
+    { label: "Users", href: "/admin/users", icon: Users },
+    { label: "Testimonials", href: "/admin/testimonials", icon: Star },
+    { label: "Analytics", href: "/admin/analytics", icon: BarChart },
   ],
 
-  [Roles.TUTOR]: [
-    {
-      label: "Dashboard",
-      href: "/dashboard",
-      icon: LayoutDashboard,
-      feature: "PROFILE"
-    },
-    {
-      label: "My Sessions",
-      href: "/dashboard/sessions",
-      icon: CalendarCheck,
-      feature: "SESSIONS"
-    },
-    {
-      label: "Create & Update Profile",
-      href: "/dashboard/profile",
-      icon: UserPlus,
-      feature: "PROFILE"
-    },
-
-   
-    {
-      label: "Set Availability",
-      href: "/dashboard/availability",
-      icon: Clock,
-      feature: "AVAILABILITY"
-    },
-    {
-      label: "Ratings & Reviews",
-      href: "/dashboard/reviews",
-      icon: Star,
-      feature: "REVIEWS"
-    }
-
-
-
+  [Roles.EXPERT]: [
+    { label: "Dashboard", href: "/expert", icon: LayoutDashboard },
+    { label: "My Schedule", href: "/expert/schedule", icon: Calendar },
+    { label: "Testimonials", href: "/expert/testimonials", icon: Star },
+    { label: "Analytics", href: "/expert/analytics", icon: BarChart },
   ],
 
-  [Roles.STUDENT]: [
-     {
-      label: "Dashboard",
-      href: "/dashboard",
-      icon: LayoutDashboard,
-      feature: "PROFILE"
-    },
-    {
-      label: "Your Bookings",
-      href: "/dashboard/bookSession",
-      icon: BookOpen,
-      feature: "BOOKING"
-    },
-    {
-      label: "Book Session",
-      href: "/tutors",
-      icon: Star,
-      feature: "REVIEWS"
-    },
-    {
-      label: "Manage Profile",
-      href: "/dashboard/manageProfile",
-      icon: UserCog,
-      feature: "PROFILE"
-    }
-
+  [Roles.CLIENT]: [
+    { label: "Dashboard", href: "/client", icon: LayoutDashboard },
+    { label: "My Bookings", href: "/client/bookings", icon: Calendar },
+    { label: "My Testimonials", href: "/client/testimonials", icon: Star },
+    { label: "Profile", href: "/client/profile", icon: UserCog },
   ],
-}
+};

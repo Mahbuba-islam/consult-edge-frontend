@@ -1,24 +1,17 @@
-// "use client"
+"use client";
+
+import { logoutAction } from "@/src/app/(commonLayout)/(authRouteGroup)/logOut/_action";
 
 
-// import { authClient } from "@/lib/auth-client"
-// import { useRouter } from "next/navigation"
-
-// export function LogOutButton() {
-//   const router = useRouter()
-
-//   return (
-//     <div
-//       onClick={async () => {
-//         await authClient.signOut({
-//           fetchOptions: {
-//             onSuccess: () => router.push("/login")
-//           }
-//         })
-//       }}
-//       className="cursor-pointer text-red-600"
-//     >
-//       Logout
-//     </div>
-//   )
-// }
+export function LogOutButton() {
+  return (
+    <div
+      onClick={async () => {
+        await logoutAction();
+      }}
+      className="cursor-pointer text-red-600"
+    >
+      Logout
+    </div>
+  );
+}

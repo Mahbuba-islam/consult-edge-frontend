@@ -1,8 +1,13 @@
+import { IIndustry } from "./industry.types";
+
 export interface IExpert {
   id: string;
-  name: string;
+  fullName: string;
   email: string;
   title?: string;
+  consultationFee:string
+  profilePhoto?:string
+   industry?:IIndustry
   bio?: string;
   avatar?: string;
   isVerified: boolean;
@@ -20,12 +25,12 @@ export interface IUpdateExpertPayload {
 
 
 export interface IExpertDetails extends IExpert {
-  industry?: {
-    id: string;
-    name: string;
-    description?: string;
-    icon?: string;
-  };
+  // industry?: {
+  //   id: string;
+  //   name: string;
+  //   description?: string;
+  //   icon?: string;
+  // };
 
   schedules?: Array<{
     id: string;
